@@ -1,6 +1,6 @@
 import swal from "sweetalert";
 const AddCoffee = () => {
-  const handleSubmit = (e) => {
+  const handleAddCoffee = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -33,9 +33,10 @@ const AddCoffee = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
+          form.reset();
           swal({
             title: "Good job!",
-            text: "You clicked the button!",
+            text: "You add the coffee!",
             icon: "success",
             button: "cool",
           });
@@ -46,7 +47,7 @@ const AddCoffee = () => {
   return (
     <div className="bg-[#F4F3F0] p-24">
       <h3 className="text-3xl font-bold text-center mb-12">Add New Coffee</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleAddCoffee}>
         {/* form name and quantity */}
         <div className="md:flex mb-8">
           <div className="form-control md:w-1/2">
