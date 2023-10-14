@@ -1,3 +1,4 @@
+import swal from "sweetalert";
 const AddCoffee = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +21,26 @@ const AddCoffee = () => {
       photo,
     };
     console.log(newCoffee);
+
+    fetch("http://localhost:5000/coffee", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+            button: "cool",
+          });
+        }
+      });
   };
 
   return (
