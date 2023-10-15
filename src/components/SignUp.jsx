@@ -7,12 +7,32 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.email.value;
+    const email = form.email.value;
     const password = form.password.value;
-    console.log(name, password);
-    createUser(name, password)
+    console.log(email, password);
+    createUser(email, password)
       .then((result) => {
         console.log(result);
+        //   store new user in the database
+        const createdAt = result.user.metadata.creationTime;
+        const user = { email, createdAt: createdAt };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.insertedId) {
+              alert("User created successfully");
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       })
       .catch((error) => {
         console.error(error);
