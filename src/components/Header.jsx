@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   const navLinks = (
@@ -47,7 +47,9 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-neutral">Login</a>
+        <Link to="/login">
+          <button className="btn btn-neutral">Login</button>
+        </Link>
       </div>
     </div>
   );
