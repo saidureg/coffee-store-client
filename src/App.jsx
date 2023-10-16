@@ -14,7 +14,7 @@ function App() {
       </h1>
       <div className="mb-24 text-center">
         <Link to="/add_coffee">
-          <button className="btn btn-secondary">Add Coffee</button>{" "}
+          <button className="btn btn-secondary">Add Coffee</button>
         </Link>
       </div>
       <div className="grid md:grid-cols-2 gap-5">

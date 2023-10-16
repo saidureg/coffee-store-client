@@ -18,7 +18,7 @@ const Login = () => {
           email,
           lastSignInAt: result.user?.metadata?.lastSignInTime,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://coffee-store-server-wheat-iota.vercel.app/users", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -36,34 +36,6 @@ const Login = () => {
       .catch((error) => {
         console.error(error);
       });
-
-    // createUser(email, password)
-    //   .then((result) => {
-    //     console.log(result);
-    //     //   store new user in the database
-    //     const createdAt = result.user.metadata.creationTime;
-    //     const user = { email, createdAt: createdAt };
-    //     fetch("http://localhost:5000/users", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(user),
-    //     })
-    //       .then((res) => res.json())
-    //       .then((data) => {
-    //         console.log(data);
-    //         if (data.insertedId) {
-    //           alert("User created successfully");
-    //         }
-    //       })
-    //       .catch((error) => {
-    //         console.error(error);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
   };
 
   return (

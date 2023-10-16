@@ -15,7 +15,7 @@ const Users = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://coffee-store-server-wheat-iota.vercel.app/users/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

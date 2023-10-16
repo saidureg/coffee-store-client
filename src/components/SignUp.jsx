@@ -16,7 +16,7 @@ const SignUp = () => {
         //   store new user in the database
         const createdAt = result.user.metadata.creationTime;
         const user = { email, createdAt: createdAt };
-        fetch("http://localhost:5000/users", {
+        fetch("https://coffee-store-server-wheat-iota.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

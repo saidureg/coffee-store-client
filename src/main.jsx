@@ -19,7 +19,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App />,
-        loader: () => fetch("http://localhost:5000/coffee"),
+        loader: () =>
+          fetch("https://coffee-store-server-wheat-iota.vercel.app/coffee"),
       },
       {
         path: "/add_coffee",
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
         path: "/update_coffee/:id",
         element: <UpdateCoffee />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffee/${params.id}`),
+          fetch(
+            `https://coffee-store-server-wheat-iota.vercel.app/coffee/${params.id}`
+          ),
       },
       {
         path: "/login",
@@ -42,7 +45,8 @@ const router = createBrowserRouter([
       {
         path: "/users",
         element: <Users />,
-        loader: () => fetch("http://localhost:5000/users"),
+        loader: () =>
+          fetch("https://coffee-store-server-wheat-iota.vercel.app/users"),
       },
     ],
   },
